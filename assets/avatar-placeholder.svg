@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+  <!-- Background circle with subtle glow -->
+  <circle cx="100" cy="100" r="96" fill="#0f172a" stroke="url(#avatarGrad)" stroke-width="4" />
+  <circle cx="100" cy="100" r="88" fill="url(#glowGrad)" />
+
+  <!-- Stylized Person Avatar / Monogram -->
+  <g fill="none" stroke="url(#avatarGrad)" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Head -->
+    <circle cx="100" cy="72" r="32" stroke-width="5" fill="#1e293b" />
+    <!-- AI Crown / Tech nodes -->
+    <circle cx="100" cy="30" r="4" fill="#a855f7" stroke="none" />
+    <circle cx="70" cy="38" r="3.5" fill="#6366f1" stroke="none" />
+    <circle cx="130" cy="38" r="3.5" fill="#3b82f6" stroke="none" />
+    <line x1="100" y1="34" x2="100" y2="40" stroke-width="2" stroke="#a855f7" />
+    <line x1="72" y1="41" x2="79" y2="48" stroke-width="2" stroke="#6366f1" />
+    <line x1="128" y1="41" x2="121" y2="48" stroke-width="2" stroke="#3b82f6" />
+    <!-- Shoulders/Body -->
+    <path d="M46 166 C48 126 72 118 100 118 C128 118 152 126 154 166" stroke-width="5" fill="#1e293b" />
+  </g>
+  
+  <!-- Monogram Initials HNA inside chest -->
+  <text x="100" y="152" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="800" fill="#e2e8f0" letter-spacing="2">HNA</text>
+</svg>
