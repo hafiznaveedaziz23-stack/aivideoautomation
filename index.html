@@ -212,49 +212,53 @@
       </section>
 
       <!-- ==============================================
-           TAB 2: PROJECTS / MY WORKS
+           TAB 2: PROJECTS / MY WORKS & AI AUTOMATION LAB
            ============================================== -->
       <section id="tab-projects" class="tab-pane">
         
         <div class="tab-header-box">
           <div class="badge-pill">
-            <i class="fa-solid fa-photo-film"></i> Showcase
+            <i class="fa-solid fa-wand-magic-sparkles"></i> AI Automation Lab
           </div>
-          <h2 class="tab-title">Portfolio & Works</h2>
-          <p class="tab-subtitle">Real AI Video Automation productions crafted for client channels, brands, and creators.</p>
+          <h2 class="tab-title">Verified AI Video Pipelines</h2>
+          <p class="tab-subtitle">Real-world AI Video Automation architectures, prompt engineering frameworks, and production pipelines researched 3x daily by Gemini AI and curated by Hafiz Naveed Aziz.</p>
         </div>
 
-        <!-- Initial Empty State (Required: No fake projects or products) -->
-        <div class="portfolio-empty-state">
-          <div class="empty-icon-halo">
-            <div class="empty-icon-glow"></div>
-            <i class="fa-solid fa-clapperboard"></i>
-          </div>
-          <h3 class="empty-title">Portfolio In Curation</h3>
-          <p class="empty-desc">
-            No placeholder or fake videos are displayed here. Hafiz Naveed Aziz is currently curating real-world AI video automation deliverables, case studies, and client reels.
-          </p>
-
-          <div class="empty-cta-group">
-            <a href="https://wa.me/923013986828?text=Hello%20Hafiz%20Naveed%20Aziz,%20I%20would%20like%20to%20see%20recent%20samples%20of%20your%20AI%20video%20automation%20work." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-whatsapp">
-              <i class="fa-brands fa-whatsapp"></i>
-              <span>Request Private Portfolio Demo</span>
-            </a>
-          </div>
-
-          <!-- Developer / Owner Friendly Notice Card -->
-          <div class="owner-helper-card">
-            <div class="helper-header">
-              <i class="fa-solid fa-circle-info"></i>
-              <span>Ready for Your Content</span>
+        <!-- Live Autonomous Engine Status Banner -->
+        <div class="live-engine-banner">
+          <div class="engine-status-left">
+            <span class="live-pulse-dot"></span>
+            <div class="engine-info">
+              <span class="engine-title">Autonomous AI Video Research Engine</span>
+              <span class="engine-sub">Runs 3x daily via GitHub Actions & Gemini AI</span>
             </div>
-            <p class="helper-text">
-              When ready, you can easily paste your video files, YouTube/Vimeo embed links, or thumbnail cards directly into the <code>#tab-projects</code> section inside <code>index.html</code>. A pre-styled responsive video card template is prepared in the source code!
-            </p>
           </div>
+          <span class="live-counter-pill" id="live-count-badge">Live Pipelines</span>
+        </div>
+
+        <!-- Research Filter Chips -->
+        <div class="filter-chips-scroll">
+          <button type="button" class="filter-chip active" onclick="filterResearch('all', this)">All Pipelines</button>
+          <button type="button" class="filter-chip" onclick="filterResearch('Faceless', this)">Faceless YouTube</button>
+          <button type="button" class="filter-chip" onclick="filterResearch('Reels', this)">Shorts & Reels</button>
+          <button type="button" class="filter-chip" onclick="filterResearch('Avatar', this)">AI Avatars</button>
+          <button type="button" class="filter-chip" onclick="filterResearch('Cinematic', this)">Video Models</button>
+        </div>
+
+        <!-- Live Research Dynamic Feed Container -->
+        <div id="research-feed-container" class="research-feed-grid">
+          <!-- Dynamically populated from data/research.json by script.js -->
+        </div>
+
+        <!-- Owner Notice: Ready for Custom Videos -->
+        <div class="owner-helper-card" style="margin-top: 24px;">
+          <div class="helper-header">
+            <i class="fa-solid fa-photo-film"></i>
+            <span>Upload Your Personal Client Videos / Embeds</span>
+          </div>
+          <p class="helper-text">
+            To display your personal video reels or client project embeds alongside these automated research pipelines, simply place your video links inside the <code>#ready-portfolio-container</code> in <code>index.html</code>.
+          </p>
         </div>
 
         <!-- Pre-Styled Modern Portfolio Grid Structure (Ready for when user adds real videos) -->
@@ -263,20 +267,6 @@
             OWNER NOTICE:
             When you are ready to upload videos, simply set style="display: grid;" 
             and uncomment the video cards below or duplicate them!
-          -->
-          <!-- Example Template Structure (Commented out):
-          <div class="portfolio-card">
-            <div class="video-preview-wrapper">
-              <img src="assets/project-thumb-1.jpg" alt="Project Thumbnail" class="video-thumbnail">
-              <span class="video-duration">0:58</span>
-              <button class="play-btn-overlay"><i class="fa-solid fa-play"></i></button>
-            </div>
-            <div class="portfolio-card-info">
-              <span class="portfolio-category">Faceless Automation</span>
-              <h4 class="portfolio-item-title">Finance Explainer Short Reel</h4>
-              <p class="portfolio-item-desc">Fully automated AI script, voiceover, and visual motion graphics.</p>
-            </div>
-          </div>
           -->
         </div>
 

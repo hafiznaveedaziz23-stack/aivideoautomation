@@ -1,0 +1,79 @@
+name: AI Video Automation - Research & Deploy
+
+on:
+  # Runs 3 times a day (6 AM, 12 PM, 6 PM UTC)
+  schedule:
+    - cron: '0 6,12,18 * * *'
+  # Allows manual triggering anytime from GitHub Actions tab
+  workflow_dispatch:
+  # Triggers on code push to main branch
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  research-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run AI Video Research & Verification Engine
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python automate_research.py
+
+      - name: Commit & Push Verified Research
+        run: |
+          git config --global user.name "Naveed AI Automation Bot"
+          git config --global user.email "bot@naveedaivideo.com"
+          git add data/research.json
+          if git diff --staged --quiet; then
+            echo "No new changes to commit."
+          else
+            git commit -m "⚡ Auto-Publish: Verified AI Video Automation Research [skip ci]"
+            git push origin main
+          fi
+
+  deploy-to-github-pages:
+    needs: research-and-publish
+    if: always()
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
